@@ -93,15 +93,13 @@ process = "N2N3"
     
 hBarCinGeVmm = 1.973269788e-13
 
-#mchi=200
-mchi=175
+mchi=200
 ctau0 = 1000
 ctau = hBarCinGeVmm / ctau0
 print mchi, ctau0, ctau
 
 externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
     args =  cms.vstring('/cvmfs/cms.cern.ch/phys_generator/gridpacks/2017/13TeV/madgraph/V5_2.4.2/sus_sms/LO_PDF/SMS-%s/v1/SMS-%s_mN-%i_slc6_amd64_gcc481_CMSSW_7_1_30_tarball.tar.xz' % (process,process,mchi)),
-    #args = cms.vstring("/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc6_amd64_gcc481/13TeV/madgraph/V5_2.4.2/sus_sms/SMS-C1N2/SMS-C1N2_mChi-300_slc6_amd64_gcc481_CMSSW_7_1_30_tarball.tar.xz"),
     nEvents = cms.untracked.uint32(5000),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
